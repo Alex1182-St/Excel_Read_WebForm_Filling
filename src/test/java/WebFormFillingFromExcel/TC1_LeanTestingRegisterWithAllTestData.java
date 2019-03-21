@@ -1,5 +1,6 @@
 package WebFormFillingFromExcel;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -13,8 +14,9 @@ import org.testng.annotations.Test;
 
 
 
-public class TC1_LeanTestingRegisterExcelData
+public class TC1_LeanTestingRegisterWithAllTestData
 	{
+
 	WebDriver driver;
 	
 	@BeforeMethod
@@ -53,14 +55,14 @@ public class TC1_LeanTestingRegisterExcelData
 	
 		
 	@DataProvider(name = "registerData")
-	public Object[][] passData()
-	{
-		ExcelDataConfig config = new ExcelDataConfig("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\InputTestData.xlsx");
+	public Object[][] passData() throws IOException {
+
+		ExcelDataReadingInTestFolder config = new ExcelDataReadingInTestFolder("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\RegisterTestDataAll.xlsx");
 		
 		int rowsQty = config.getRowCount(0);
 		// 0-because it is the first sheet in Excel file
 				
-		Object[][] data=new Object[rowsQty][3];
+		Object[][] data=new Object[rowsQty][3]; // 3 - кількість колонок (веб-форм)
 
 
 		for(int i=0;i<rowsQty;i++)

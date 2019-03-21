@@ -1,5 +1,6 @@
 package WebFormFillingFromExcel;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -13,9 +14,9 @@ import org.testng.annotations.Test;
 
 
 
-public class TC2_LeanTestingLoginExcelData
-
+public class TC2_LeanTestingLoginWithAllTestData
 	{
+
 	WebDriver driver;
 	
 	@BeforeMethod
@@ -30,9 +31,9 @@ public class TC2_LeanTestingLoginExcelData
 	
 	
 	@Test(dataProvider="loginData")
-	public void LeanTestingRegister(String yourusernameoremail, String password) throws InterruptedException
+	public void LeanTestingRegister(String yourUserNameOrEmail, String password) throws InterruptedException
 	{
-		driver.findElement(By.id("username")).sendKeys(yourusernameoremail);
+		driver.findElement(By.id("username")).sendKeys(yourUserNameOrEmail);
 		driver.findElement(By.id("password")).sendKeys(password);
 		
 		driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click();
@@ -52,16 +53,16 @@ public class TC2_LeanTestingLoginExcelData
 	
 		
 	@DataProvider(name="loginData")
-	public Object[][] passData()
-	{
-		ExcelDataConfig config=new ExcelDataConfig("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\InputTestDataLogin.xlsx");
+	public Object[][] passData() throws IOException {
+
+		ExcelDataReadingInTestFolder config=new ExcelDataReadingInTestFolder("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\LoginTestDataAll.xlsx");
 		
-		int rows=config.getRowCount(0);
+		int rowsQty = config.getRowCount(0);
 		// 0-because it is the first sheet in Excel file
 				
-		Object[][] data=new Object[rows][2];
+		Object[][] data = new Object[rowsQty][2]; // 2 - кількість колонок (веб-форм)
 		
-		for(int i=0;i<rows;i++)
+		for(int i=0;i<rowsQty;i++)
 			
 		{
 			
