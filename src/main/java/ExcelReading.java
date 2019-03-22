@@ -8,7 +8,7 @@ public class ExcelReading {
     public static void main(String[] args) throws IOException {
 
 
-        ExcelDataReadingInMainFolder newRead = new ExcelDataReadingInMainFolder("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\RegisterTestDataAll.xlsx");
+        ExcelDataReadingInMainFolder newRead = new ExcelDataReadingInMainFolder("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\RegisterTestDataInRows.xlsx");
 
         /**
          значення однієї будь-якої ячейки
@@ -18,7 +18,7 @@ public class ExcelReading {
         System.out.println("\nCell Value - " + cellValue);
 
         /**
-         всі значення однієї будь-якої колонки, можна починати з будь-якої ячейки
+         всі значення однієї, будь-якої колонки, можна починати з будь-якої ячейки
          */
         int rowCount;
         rowCount = newRead.getRowCount(0);
@@ -32,7 +32,7 @@ public class ExcelReading {
         }
 
         /**
-         всі значення однієї будь-якого рядка, можна починати з будь-якої ячейки
+         всі значення одного, будь-якого рядка, можна починати з будь-якої ячейки
          */
 
         int columnCount;
