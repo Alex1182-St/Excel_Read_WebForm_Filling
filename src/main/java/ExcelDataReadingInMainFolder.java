@@ -35,8 +35,6 @@ public class ExcelDataReadingInMainFolder
 	{
 		int columnCount = wb.getSheetAt(sheetIndex).getRow(row).getLastCellNum();
 
-		columnCount = columnCount+1;
-
 		return columnCount;
 	}
 
