@@ -8,7 +8,7 @@ public class ExcelReading {
     public static void main(String[] args) throws IOException {
 
 
-        ExcelDataReadingInMainFolder newRead = new ExcelDataReadingInMainFolder("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\RegisterTestDataInRows.xlsx");
+        ExcelDataReadingInMainFolder newRead = new ExcelDataReadingInMainFolder("C:\\Users\\oleks\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\main\\Data\\DataInRows.xlsx");
 
         /**
          значення однієї будь-якої ячейки
