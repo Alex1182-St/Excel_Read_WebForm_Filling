@@ -18,7 +18,7 @@ public class TC1_Register_TestDataInRows
 	WebDriver driver;
 	
 	@BeforeMethod
-	public void aplicationSetup()
+	public void applicationSetup()
 	{
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\stepanyuk\\IdeaProjects\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
