@@ -17,11 +17,13 @@ import org.testng.annotations.Test;
 public class TC2_Login_TestDataInRows
 	{
 	WebDriver driver;
+		String chromeDriverPath = "C:\\Users\\oleks\\IdeaProjects\\Chrome Driver\\chromedriver_win32\\chromedriver.exe";
+		String excelTestDataPath = "C:\\Users\\oleks\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\LoginTestDataInRows.xlsx";
 	
 	@BeforeMethod
 	public void applicationSetup()
 	{
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\stepanyuk\\IdeaProjects\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://auth.leantesting.com/sign-in");
@@ -51,7 +53,7 @@ public class TC2_Login_TestDataInRows
 	@DataProvider(name="loginData")
 	public Object[][] passData() throws IOException {
 
-		ExcelDataReadingInTestFolder config=new ExcelDataReadingInTestFolder("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\LoginTestDataInRows.xlsx");
+		ExcelDataReadingInTestFolder config=new ExcelDataReadingInTestFolder(excelTestDataPath);
 		
 		int rowsQty = config.getRowCount(0);
 
