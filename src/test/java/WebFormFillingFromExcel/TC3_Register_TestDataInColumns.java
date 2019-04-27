@@ -16,11 +16,13 @@ import java.util.concurrent.TimeUnit;
 public class TC3_Register_TestDataInColumns
 	{
 	WebDriver driver;
+		String chromeDriverPath = "C:\\Users\\oleks\\IdeaProjects\\Chrome Driver\\chromedriver_win32\\chromedriver.exe";
+		String excelTestDataPath = "C:\\Users\\oleks\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\RegisterTestDataInColumns.xlsx";
 	
 	@BeforeMethod
 	public void applicationSetup()
 	{
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\stepanyuk\\IdeaProjects\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://auth.leantesting.com/sign-up");
@@ -53,7 +55,7 @@ public class TC3_Register_TestDataInColumns
 	@DataProvider(name = "registerData")
 	public Object[][] passData() throws IOException {
 
-		ExcelDataReadingInTestFolder config=new ExcelDataReadingInTestFolder("C:\\Users\\stepanyuk\\IdeaProjects\\Excel_Read_WebForm_Filling\\src\\test\\TestData\\RegisterTestDataInColumns.xlsx");
+		ExcelDataReadingInTestFolder config = new ExcelDataReadingInTestFolder(excelTestDataPath);
 
 		int columnsQty = config.getColumnCount(0,1);
 
